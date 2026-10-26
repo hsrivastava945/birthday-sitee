@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For You</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Dancing+Script:wght@500;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ===================== ENVELOPE / INTRO ===================== -->
+<section id="envelope-screen">
+  <div class="envelope-wrap">
+    <div class="envelope" id="envelope">
+      <div class="envelope-back"></div>
+      <div class="letter-peek">
+        <p class="letter-peek-text" id="peekName">To My Person</p>
+      </div>
+      <div class="envelope-flap"></div>
+      <button class="seal" id="seal" aria-label="Open the letter">
+        <svg viewBox="0 0 100 100" class="seal-svg">
+          <circle cx="50" cy="50" r="46" />
+          <text x="50" y="58" text-anchor="middle" class="seal-letter">S</text>
+        </svg>
+      </button>
+    </div>
+    <p class="tap-hint">tap the seal to open</p>
+  </div>
+</section>
+
+<!-- ===================== MAIN SITE ===================== -->
+<main id="site" class="hidden">
+
+  <!-- thread progress line -->
+  <div class="thread-track" aria-hidden="true"><div class="thread-fill" id="threadFill"></div></div>
+
+  <!-- ---------- GREETING ---------- -->
+  <section class="panel" id="greeting">
+    <div class="paper-card fade-target">
+      <p class="eyebrow">a little something for</p>
+      <h1 class="script-name" id="greetName">Her Name</h1>
+      <p class="greeting-body" id="greetBody">
+        I wrote this instead of just saying it out loud, because some things
+        deserve to be kept somewhere you can come back to. Scroll slow — there's
+        a song, some pictures, a small garden, and a letter waiting at the end.
+      </p>
+
+      <button class="song-toggle" id="songToggle">
+        <span class="song-icon" id="songIcon">♪</span>
+        <span id="songLabel">play our song</span>
+      </button>
+      <audio id="bgSong" loop preload="none">
+        <source src="assets/song/our-song.mpeg" type="audio/mpeg" />
+      </audio>
+    </div>
+    <div class="scroll-cue">keep scrolling <span>↓</span></div>
+  </section>
+
+  <!-- ---------- GALLERY ---------- -->
+  <section class="panel" id="gallery">
+    <p class="eyebrow center">a few of my favourites</p>
+    <h2 class="section-title center">Her and Uss,Photos</h2>
+
+    <div class="album" id="album">
+      <!-- photo cards injected by JS from CONFIG.photos -->
+    </div>
+  </section>
+
+  <!-- ---------- FLOWER GARDEN / NOTES ---------- -->
+  <section class="panel" id="garden">
+    <p class="eyebrow center">pick one</p>
+    <h2 class="section-title center">a small garden of reasons</h2>
+    <p class="garden-sub">every flower is holding a note. tap one.</p>
+
+    <div class="flowerbed" id="flowerbed">
+      <!-- flowers injected by JS from CONFIG.notes -->
+    </div>
+  </section>
+
+  <!-- ---------- LETTER ---------- -->
+  <section class="panel" id="letter-section">
+    <div class="paper-card letter-card fade-target">
+      <p class="eyebrow center">last page</p>
+      <h2 class="section-title center">a letter, properly</h2>
+      <div class="letter-body" id="letterBody">
+        <!-- letter text injected by JS -->
+      </div>
+      <p class="signature" id="signature">— Yours</p>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>I Love YOU</p>
+  </footer>
+
+</main>
+
+<!-- ---------- NOTE MODAL ---------- -->
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="note-modal">
+    <button class="modal-close" id="modalClose" aria-label="Close note">×</button>
+    <p class="note-modal-text" id="modalText"></p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
